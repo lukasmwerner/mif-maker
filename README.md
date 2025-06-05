@@ -33,6 +33,7 @@ There are a few different ways that this program can be installed.
     2. Ensure the program is executable `chmod +x ./mif-maker-linux-amd64`
     3. Run the program with `./mif-maker-linux-amd64`
 
+![](/images/demo.gif)
 
 
 ### Acknowledgements
