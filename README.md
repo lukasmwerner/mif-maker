@@ -24,11 +24,11 @@ There are a few different ways that this program can be installed.
     2. Open a command prompt in the folder you downloaded it to
     3. Run the program e.g. `.\mif-maker-windows-amd64` on Windows x86_64
 
+> [!WARNING]
+> Important If you are an Oregon State University student following these
+> instructions, and you have never accessed the school servers before, visit
+> https://teach.engr.oregonstate.edu to active your engineering resources.
 2. Oregon State Engineering Servers
-    > [!WARNING]
-    > Important If you are an Oregon State University student following these
-    > instructions, and you have never accessed the school servers before, visit
-    > https://teach.engr.oregonstate.edu to active your engineering resources.
     1. Download the program for Linux x86_64 with the following command: `wget https://github.com/lukasmwerner/mif-maker/releases/download/v0.1.2/mif-maker-linux-amd64`
     2. Ensure the program is executable `chmod +x ./mif-maker-linux-amd64`
     3. Run the program with `./mif-maker-linux-amd64`
