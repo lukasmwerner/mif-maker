@@ -1,7 +1,11 @@
 default:
 	just --list
 build os arch:
-	CGO_ENABLED=0 GOOS={{os}} GOARCH={{arch}} go build -o ./bin/mif-maker-{{os}}-{{arch}} .
+	if [ "{{os}}" = "windows" ]; then \
+		CGO_ENABLED=0 GOOS={{os}} GOARCH={{arch}} go build -o ./bin/mif-maker-{{os}}-{{arch}}.exe . ; \
+	else \
+		CGO_ENABLED=0 GOOS={{os}} GOARCH={{arch}} go build -o ./bin/mif-maker-{{os}}-{{arch}} . ;\
+	fi
 
 build-all:
 	#!/usr/bin/env sh
@@ -11,8 +15,3 @@ build-all:
 		GOARCH="$(echo $comb | cut -d'-' -f2)"
 		just build $GOOS $GOARCH
 	done
-
-test_export:
-    export MY_VAR="hello"
-    echo "First command: $MY_VAR" # This will print "hello"
-    echo "Second command: $MY_VAR" # This will print nothing (or whatever MY_VAR was before)

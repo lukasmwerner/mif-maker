@@ -2,8 +2,12 @@ package internal
 
 import (
 	"fmt"
+	_ "golang.org/x/image/bmp"
+	_ "golang.org/x/image/webp"
 	"image"
 	"image/color"
+	_ "image/jpeg"
+	_ "image/png"
 	"os"
 
 	"github.com/charmbracelet/lipgloss"
