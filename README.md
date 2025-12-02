@@ -38,7 +38,7 @@ There are a few different ways that this program can be installed.
 
 
 ### Windows Demo
-![](/images/mac-demo.gif)
+![](/images/windows-demo.gif)
 
 ### Version Table
 | CPU                              | Operating System| Binary/Release  |
