@@ -22,7 +22,7 @@ There are a few different ways that this program can be installed.
 1. On a personal computer
     1. Download the binary for your respective computer and CPU from the [release page](https://github.com/lukasmwerner/mif-maker/releases) e.g. `mif-maker-windows-amd64` for x86_64 Windows computers
     2. Open a command prompt in the folder you downloaded it to
-    3. Run the program e.g. `.\mif-maker-windows-amd64` on Windows x86_64
+    3. Run the program e.g. `.\mif-maker-windows-amd64.exe` on Windows x86_64
 
 > [!WARNING]
 > Important If you are an Oregon State University student following these
