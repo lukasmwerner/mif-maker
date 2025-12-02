@@ -33,7 +33,23 @@ There are a few different ways that this program can be installed.
     2. Ensure the program is executable `chmod +x ./mif-maker-linux-amd64`
     3. Run the program with `./mif-maker-linux-amd64`
 
-![](/images/demo.gif)
+### Mac Demo
+![](/images/mac-demo.gif)
+
+
+### Windows Demo
+![](/images/mac-demo.gif)
+
+### Version Table
+| CPU                              | Operating System| Binary/Release  |
+| -------------------------------- | --------------- | --------------- |
+| ARM CPU(e.g. Snapdragon X Elite) | Windows         | [mif-maker-windows-arm64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.2.0/mif-maker-windows-arm64.exe) |
+| Intel/AMD CPU                    | Windows         | [mif-maker-windows-amd64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.2.0/mif-maker-windows-amd64.exe) |
+| ARM CPU(Apple M Series)          | macOS           | [mif-maker-darwin-arm64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.2.0/mif-maker-darwin-arm64) |
+| Intel CPU                        | macOS           | [mif-maker-darwin-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.2.0/mif-maker-darwin-amd64) |
+| Intel/AMD CPU                    | Linux & *Nix    | [mif-maker-linux-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.2.0/mif-maker-linux-amd64) |
+
+
 
 
 ### Acknowledgements
