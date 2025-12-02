@@ -1,12 +1,13 @@
 package internal
 
 import (
-	"bufio"
 	"fmt"
 	"image"
 	"image/color"
 	"image/png"
 	"os"
+
+	"github.com/charmbracelet/huh"
 )
 
 type PreviewGenerator struct{}
@@ -48,13 +49,21 @@ func (pg *PreviewGenerator) CreatePreview(img image.Image) error {
 }
 
 func (pg *PreviewGenerator) getPreviewFilename() (string, error) {
-	fmt.Print("Enter name of preview image relative to current directory: ")
-	reader := bufio.NewReader(os.Stdin)
-	filename, err := reader.ReadString('\n')
+	var filename string
+
+	err := huh.NewInput().Title("Enter name of preview image relative to current directory: ").
+		Prompt("?").
+		Value(&filename).
+		DescriptionFunc(func() string {
+			if _, err := os.Stat(filename); os.IsNotExist(err) {
+				return "This preview file is just so you have an idea of what it should look like."
+			}
+			return fmt.Sprintf("WARNING!: file %s already exists", filename)
+		}, &filename).Run()
 	if err != nil {
-		return "", err
+		return filename, err
 	}
-	return filename[:len(filename)-1], nil
+	return filename, nil
 }
 
 func (pg *PreviewGenerator) savePreviewImage(img image.Image, filename string) error {

@@ -3,21 +3,51 @@ package main
 import (
 	"fmt"
 	"os"
+	"path"
 
+	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/huh"
 	"github.com/lukasmwerner/mif-maker/internal"
 )
 
 func main() {
+
+	defaults := huh.NewDefaultKeyMap()
+
+	keymap := &huh.KeyMap{}
+	keymap.Quit = defaults.Quit
+	keymap.Input = defaults.Input
+	keymap.Input.AcceptSuggestion = key.NewBinding(key.WithKeys("tab"), key.WithHelp("tab", "complete"))
+
 	var filename string
-	err := huh.NewInput().Title("Enter name of image relative to current directory: ").
-		Prompt("?").
-		Validate(func(s string) error {
-			if _, err := os.Stat(s); os.IsNotExist(err) {
-				return fmt.Errorf("file %s does not exist", s)
-			}
-			return nil
-		}).Value(&filename).Run()
+
+	err := huh.NewForm(huh.NewGroup(
+		huh.NewInput().Title("Enter name of image relative to current directory: ").
+			Prompt("?").
+			Validate(func(s string) error {
+				if _, err := os.Stat(s); os.IsNotExist(err) {
+					return fmt.Errorf("file %s does not exist", s)
+				}
+				ext := path.Ext(s)
+				switch ext {
+				case ".jpg", ".jpeg", ".png", ".bmp", ".webp":
+					return nil
+				default:
+					return fmt.Errorf("file %s is not a supported image format %s", s, ext)
+
+				}
+			}).
+			SuggestionsFunc(func() []string {
+				return internal.FileBasedSuggestions(filename, []string{
+					".jpg", ".jpeg", ".png", ".bmp", ".webp",
+				})
+			}, &filename).
+			Value(&filename),
+	)).
+		WithKeyMap(keymap).
+		WithShowHelp(true).
+		Run()
+
 	if err != nil {
 		fmt.Printf("Error getting filename: %v\n", err)
 		os.Exit(1)
