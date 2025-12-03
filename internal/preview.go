@@ -59,7 +59,9 @@ func (pg *PreviewGenerator) getPreviewFilename() (string, error) {
 				return "This preview file is just so you have an idea of what it should look like."
 			}
 			return fmt.Sprintf("WARNING!: file %s already exists", filename)
-		}, &filename).Run()
+		}, &filename).
+		Suggestions([]string{"preview.png"}).
+		Run()
 	if err != nil {
 		return filename, err
 	}

@@ -2,13 +2,15 @@ package internal
 
 import (
 	"fmt"
-	_ "golang.org/x/image/bmp"
-	_ "golang.org/x/image/webp"
 	"image"
 	"image/color"
+	"image/draw"
 	_ "image/jpeg"
 	_ "image/png"
 	"os"
+
+	_ "golang.org/x/image/bmp"
+	_ "golang.org/x/image/webp"
 
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/term"
@@ -124,27 +126,6 @@ func Resize(img image.Image) image.Image {
 
 func convertToRGBA(img image.Image) *image.RGBA {
 	rgbaImg := image.NewRGBA(img.Bounds())
-	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
-		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
-			originalColor := img.At(x, y)
-			r, g, b, a := originalColor.RGBA()
-			rgbaImg.Set(x, y, color.RGBA{uint8(r >> 8), uint8(g >> 8), uint8(b >> 8), uint8(a >> 8)})
-		}
-	}
-
-	for y := rgbaImg.Bounds().Min.Y; y < rgbaImg.Bounds().Max.Y; y++ {
-		for x := rgbaImg.Bounds().Min.X; x < rgbaImg.Bounds().Max.X; x++ {
-			r, g, b, _ := rgbaImg.At(x, y).RGBA()
-			rgbaImg.Set(x, y, color.RGBA{uint8(r >> 8), uint8(g >> 8), uint8(b >> 8), 255})
-		}
-	}
-
+	draw.Draw(rgbaImg, rgbaImg.Bounds(), img, img.Bounds().Min, draw.Src)
 	return rgbaImg
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
