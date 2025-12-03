@@ -97,13 +97,20 @@ func Resize(img image.Image) image.Image {
 	height := bounds.Dy()
 
 	croppedImg := img
-	if height > 256 || width > 256 {
-		fmt.Println(warningStyle.Render("ATTENTION: The image dimensions are too large and will be cropped to 256x256"))
+	if height != 256 || width != 256 {
+		fmt.Println(warningStyle.Render("ATTENTION: The image dimensions are not 256x256 and will be cropped/adjusted to 256x256"))
 		maxRect := image.Rect(0, 0, 256, 256)
 		croppedImg = image.NewRGBA(maxRect)
-		for y := range min(height, 256) {
-			for x := range min(width, 256) {
-				croppedImg.(*image.RGBA).Set(x, y, img.At(x, y))
+		for y := range 256 {
+			for x := range 256 {
+				var c color.Color
+				if x < width && y < height {
+					c = img.At(x, y)
+				} else {
+					c = color.Transparent
+				}
+
+				croppedImg.(*image.RGBA).Set(x, y, c)
 			}
 		}
 	}
