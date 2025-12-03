@@ -43,11 +43,11 @@ There are a few different ways that this program can be installed.
 ### Version Table
 | CPU                              | Operating System| Binary/Release  |
 | -------------------------------- | --------------- | --------------- |
-| ARM CPU(e.g. Snapdragon X Elite) | Windows         | [mif-maker-windows-arm64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.0/mif-maker-windows-arm64.exe) |
-| Intel/AMD CPU                    | Windows         | [mif-maker-windows-amd64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.0/mif-maker-windows-amd64.exe) |
-| ARM CPU(Apple M Series)          | macOS           | [mif-maker-darwin-arm64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.0/mif-maker-darwin-arm64) |
-| Intel CPU                        | macOS           | [mif-maker-darwin-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.0/mif-maker-darwin-amd64) |
-| Intel/AMD CPU                    | Linux & *Nix    | [mif-maker-linux-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.0/mif-maker-linux-amd64) |
+| ARM CPU(e.g. Snapdragon X Elite) | Windows         | [mif-maker-windows-arm64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.1/mif-maker-windows-arm64.exe) |
+| Intel/AMD CPU                    | Windows         | [mif-maker-windows-amd64.exe](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.1/mif-maker-windows-amd64.exe) |
+| ARM CPU(Apple M Series)          | macOS           | [mif-maker-darwin-arm64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.1/mif-maker-darwin-arm64) |
+| Intel CPU                        | macOS           | [mif-maker-darwin-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.1/mif-maker-darwin-amd64) |
+| Intel/AMD CPU                    | Linux & *Nix    | [mif-maker-linux-amd64](https://github.com/lukasmwerner/mif-maker/releases/download/v0.3.1/mif-maker-linux-amd64) |
 
 
 
